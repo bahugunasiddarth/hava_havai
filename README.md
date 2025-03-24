@@ -23,12 +23,3 @@ A simple shopping cart interface that fetches products from the [DummyJSON API](
 - **State Management**: BLoC / Riverpod
 - **API**: HTTP package
 
-
-## Submission
-Submit your GitHub repository or hosted app link to **shubham@havahavai.com** with a proper commit history.
-
-## Notes
-- Follow best coding practices
-- Ensure modularity and project structuring
-- Enhance UI/UX for a better user experience
-
