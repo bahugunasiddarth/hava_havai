@@ -5,8 +5,11 @@ A simple shopping cart interface that fetches products from the [DummyJSON API](
 
 ## Screenshots
 
-![Screenshot 2025-03-24 234048](https://github.com/user-attachments/assets/e8114e7c-b571-43a5-a7ac-cd41e90a1cbd)
-![Screenshot 2025-03-24 234105](https://github.com/user-attachments/assets/b6287cef-768c-4c2f-bd68-5cfe7d3d307b)
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/e8114e7c-b571-43a5-a7ac-cd41e90a1cbd" width="48%">
+  <img src="https://github.com/user-attachments/assets/b6287cef-768c-4c2f-bd68-5cfe7d3d307b" width="48%">
+</div>
+
 
 ## Features
 
