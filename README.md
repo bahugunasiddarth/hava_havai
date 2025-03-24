@@ -3,7 +3,7 @@
 ## Overview
 A simple shopping cart interface that fetches products from the [DummyJSON API](https://dummyjson.com/products), allows adding them to a cart, and calculates total prices with discounts. Uses BLoC or Riverpod for state management.
 
-##Screenshots
+## Screenshots
 
 ![Screenshot 2025-03-24 234048](https://github.com/user-attachments/assets/e8114e7c-b571-43a5-a7ac-cd41e90a1cbd)
 ![Screenshot 2025-03-24 234105](https://github.com/user-attachments/assets/b6287cef-768c-4c2f-bd68-5cfe7d3d307b)
