@@ -15,6 +15,7 @@ class ProductListScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text(
           'Products',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -132,9 +133,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      clipBehavior: Clip.antiAlias,
+      color: Colors.grey[100], // Light grey background
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () {
@@ -144,54 +145,67 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Stack(
-                children: [
-                  Image.network(
-                    product.thumbnail,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value:
-                              loadingProgress.expectedTotalBytes != null
-                                  ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes!
-                                  : null,
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(
-                        child: Icon(Icons.broken_image, color: Colors.grey),
-                      );
-                    },
+              child: Container(
+                decoration: BoxDecoration(
+                  color:
+                      Colors
+                          .grey[200], // Slightly darker grey for image container
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(12),
                   ),
-                  if (product.discountPercentage > 0)
-                    Positioned(
-                      top: 8,
-                      left: 8,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent.withOpacity(0.9),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          '${product.discountPercentage.round()}% OFF',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
+                ),
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Image.network(
+                        product.thumbnail,
+                        fit: BoxFit.contain,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Center(
+                            child: CircularProgressIndicator(
+                              value:
+                                  loadingProgress.expectedTotalBytes != null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                              color: Colors.grey[600],
+                            ),
+                          );
+                        },
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(
+                            Icons.broken_image,
+                            color: Colors.grey,
+                          );
+                        },
+                      ),
+                    ),
+                    if (product.discountPercentage > 0)
+                      Positioned(
+                        top: 8,
+                        left: 8,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent.withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            '${product.discountPercentage.round()}% OFF',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -238,8 +252,9 @@ class ProductCard extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
-                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.grey[300], // Light grey button
+                        foregroundColor:
+                            Colors.black87, // Dark text for contrast
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -255,6 +270,8 @@ class ProductCard extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            backgroundColor:
+                                Colors.grey[800], // Darker grey for snackbar
                           ),
                         );
                       },
